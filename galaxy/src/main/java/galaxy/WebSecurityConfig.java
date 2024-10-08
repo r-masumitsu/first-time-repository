@@ -9,8 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-// 14.2.8.5. Spring Securityのコンフィギュレーション WebSecurityConfig.java
-// 14.2.8.7. @PreAuthorizeによる認可制御 WebSecurityConfig.java
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
