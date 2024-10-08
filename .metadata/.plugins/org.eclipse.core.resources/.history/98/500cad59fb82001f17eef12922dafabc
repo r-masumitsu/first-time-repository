@@ -1,0 +1,15 @@
+package galaxy.app.login;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+// 14.2.8.3. ログイン画面の作成 LoginController.java
+@Controller
+public class LoginController {
+	
+	@GetMapping("loginForm")
+	String loginForm() {
+		return "login/loginForm";
+	}
+	
+}

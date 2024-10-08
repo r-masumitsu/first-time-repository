@@ -1,0 +1,48 @@
+package galaxy.app.reservation;
+
+import java.io.Serializable;
+import java.time.LocalTime;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
+@Data
+@EndTimeMustBeAfterStartTime(message = "終了時刻は開始時刻より後にしてください")
+public class ReservationForm implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	//オンライン参加有無の初期値を有に設定
+	ReservationForm(){
+		this.online = true;
+	}
+	
+	@NotNull(message = "必須です")
+	private String startHour;
+	
+	@FiveMinutesUnit(message = "5分単位で入力してください")
+	@NotNull(message = "必須です")
+	private String startMinute;
+	
+	@NotNull(message = "必須です")
+	private String endHour;
+	
+	@FiveMinutesUnit(message = "5分単位で入力してください")
+	@NotNull(message = "必須です")
+	private String endMinute;
+	
+	private String comment;
+	
+	@NotNull(message = "必須です")
+	private boolean online;
+	
+	//private User user;
+	
+	//LocalTime型を生成して返すメソッド
+	public LocalTime getCreateStartTime() {
+		return LocalTime.of(Integer.parseInt(startHour), Integer.parseInt(startMinute));
+	}
+	public LocalTime getCreateEndTime() {
+		return LocalTime.of(Integer.parseInt(endHour), Integer.parseInt(endMinute));
+	}
+}

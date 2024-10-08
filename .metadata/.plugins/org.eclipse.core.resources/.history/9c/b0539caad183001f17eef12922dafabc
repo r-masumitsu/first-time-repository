@@ -1,0 +1,40 @@
+package galaxy.app.reservation;
+
+import java.io.Serializable;
+import java.time.LocalTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
+@Data
+@EndTimeMustBeAfterStartTime(message = "終了時刻は開始時刻より後にしてください")
+public class ReservationForm implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	//追加
+    private String startHour;
+    private String startMinute;
+    private String endHour;
+    private String endMinute;
+
+	@NotNull(message = "必須です")
+	@ThirtyMinutesUnit(message = "30分単位で入力してください")
+	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime startTime;
+
+	@NotNull(message = "必須です")
+	@ThirtyMinutesUnit(message = "30分単位で入力してください")
+	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime endTime;
+	
+	//予約時のコメント
+	private String comment;
+	
+	//オンライン参加の有無（初期値を有に設定）
+	@NotNull(message = "必須です")
+	private boolean online = true;
+	}
+}

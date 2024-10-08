@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>ユーザー登録フォーム</title>
+</head>
+<body>
+    <h1>ユーザー登録フォーム</h1>
+
+    <!-- エラーメッセージ -->
+    <p th:if="${param.error}">Error!</p>
+
+    <!-- 登録フォーム -->
+    <form th:action="@{/register}" method="POST" th:object="${registrationForm}">
+        <div>
+            <label for="userId">ユーザーID(メールアドレス):</label>
+            <input type="text" id="userId" th:field="*{userId}" />
+            <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></p>
+        </div>
+
+        <div>
+            <label for="lastName">姓:</label>
+            <input type="text" id="lastName" th:field="*{lastName}" />
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+        </div>
+
+        <div>
+            <label for="firstName">名:</label>
+            <input type="text" id="firstName" th:field="*{firstName}" />
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+        </div>
+
+        <div>
+            <label for="password">パスワード:</label>
+            <input type="password" id="password" th:field="*{password}" />
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+        </div>
+
+        <div>
+            <label for="confirmPassword">パスワード（確認）:</label>
+            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" />
+            <p th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></p>
+            <p th:if="${#fields.hasErrors('samePassword')}" th:errors="*{samePassword}"></p>
+        </div>
+
+        <div>
+            <button type="submit">登録</button>
+        </div>
+    </form>
+
+    <p><a th:href="@{/loginForm}">ログインはこちら</a></p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package galaxy.app.reservation;
+
+public class FiveMinutesUnit {
+
+}

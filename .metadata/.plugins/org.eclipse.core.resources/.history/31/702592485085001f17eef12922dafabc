@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>ログインフォーム</title>
+</head>
+<body>
+    <h1>ログインフォーム</h1>
+
+    <!-- メッセージ表示 -->
+    <h2 th:if="${message}" th:text="${message}"></h2>
+
+    <!-- ログイン失敗メッセージ -->
+    <p th:if="${param.error}">ログインに失敗しました。もう一度入力してください。</p>
+
+    <!-- ログインフォーム -->
+    <form th:action="@{/login}" method="POST">
+        <label for="username">ユーザーID:</label>
+        <input type="text" id="username" name="username" /><br />
+
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" name="password" /><br />
+
+        <button type="submit">ログイン</button>
+    </form>
+
+    <!-- ユーザー登録リンク -->
+    <p><a th:href="@{/registerForm}">ユーザー登録はこちら</a></p>
+</body>
+</html>

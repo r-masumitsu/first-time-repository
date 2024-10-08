@@ -1,0 +1,230 @@
+package galaxy.app.reservation;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import galaxy.domain.model.MeetingRoom;
+import galaxy.domain.model.ReservableRoom;
+import galaxy.domain.model.ReservableRoomId;
+import galaxy.domain.model.Reservation;
+import galaxy.domain.service.reservation.AlreadyReservedException;
+import galaxy.domain.service.reservation.ReservationService;
+import galaxy.domain.service.reservation.UnavailableReservationException;
+import galaxy.domain.service.room.RoomService;
+import galaxy.domain.service.user.ReservationUserDetails;
+
+@Controller
+@RequestMapping("reservations/{date}/{roomId}")
+public class ReservationsController {
+
+	@Autowired
+	RoomService roomService;
+
+	@Autowired
+	ReservationService reservationService;
+
+	// 14.2.7.3. コントローラクラスおよびHTMLの作成 ReservationsController.java
+	@ModelAttribute("reservationForm")
+	ReservationForm setUpForm() {
+		ReservationForm form = new ReservationForm();
+		// デフォルト値
+//		form.setStartTime(LocalTime.of(9, 0));
+//		form.setEndTime(LocalTime.of(10, 0));
+		form.setStartHour("09");
+		form.setStartMinute("00");
+		form.setEndHour("10");
+		form.setEndMinute("00");
+		return form;
+	}
+
+	// 14.2.7.3. コントローラクラスおよびHTMLの作成 ReservationsController.java
+	// 14.2.8.6. 予約処理の修正 ReservationsController.java
+	@GetMapping
+	String reserveForm(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
+			@PathVariable("roomId") Integer roomId, 
+			RedirectAttributes redirectAttributes,
+			Model model) {
+		// 14.2.8.6. 予約処理の修正 ReservationsController.java
+		MeetingRoom meetingRoom;
+		try {
+			meetingRoom = roomService.findMeetingRoom(roomId);
+	    }catch(IllegalArgumentException e) {
+    		redirectAttributes.addFlashAttribute("message", e.getMessage());
+    		return "redirect:/rooms";
+	    }
+		ReservableRoomId reservableRoomId = new ReservableRoomId(roomId, date);
+		List<Reservation> reservations = reservationService.findReservations(reservableRoomId);
+		
+//		List<LocalTime> timeList = Stream.iterate(LocalTime.of(0, 0), t -> t.plusMinutes(30))
+//				.limit(24L * 2)
+//				.collect(Collectors.toList());
+		
+	    // 時間リストを「時間」リストと「分」リストに分割
+	    List<String> hourList = Stream.iterate(LocalTime.of(0, 0), t -> t.plusHours(1))
+	            .limit(24) // 0時から23時まで
+	            .map(t -> String.format("%02d", t.getHour())) // 時を2桁の文字列に
+	            .collect(Collectors.toList());
+
+	    List<String> minuteList = Stream.iterate(0, n -> n + 5)
+	            .limit(12) // 0から55まで（0, 5, 10, ..., 55）
+	            .map(n -> String.format("%02d", n)) // 分を2桁の文字列に変換
+	            .collect(Collectors.toList());
+	    
+		model.addAttribute("room", meetingRoom);
+		model.addAttribute("reservations", reservations);
+		//model.addAttribute("timeList", timeList);
+	    model.addAttribute("hourList", hourList);   // 時間リスト
+	    model.addAttribute("minuteList", minuteList); // 分リスト
+		return "reservation/reserveForm";
+	}
+
+	// 14.2.8.6. 予約処理の修正 ReservationsController.java
+	@PostMapping
+	String reserve(@Validated ReservationForm form, BindingResult bindingResult,
+			@AuthenticationPrincipal ReservationUserDetails userDetails,
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
+			@PathVariable("roomId") Integer roomId, 
+			RedirectAttributes redirectAttributes,
+			Model model
+			) {
+		if (bindingResult.hasErrors()) {
+			return reserveForm(date, roomId, redirectAttributes, model);
+		}
+		ReservableRoom reservableRoom = new ReservableRoom(new ReservableRoomId(roomId, date));
+		Reservation reservation = new Reservation();
+		reservation.setStartTime(form.getCreateStartTime());
+		reservation.setEndTime(form.getCreateEndTime());
+		reservation.setComment(form.getComment());
+		reservation.setOnline(form.isOnline());
+		reservation.setReservableRoom(reservableRoom);
+		reservation.setUser(userDetails.getUser());
+		try {
+			reservationService.reserve(reservation);
+		} catch (UnavailableReservationException | AlreadyReservedException e) {
+			model.addAttribute("error", e.getMessage());
+			return reserveForm(date, roomId, redirectAttributes, model);
+		}
+		return "redirect:/reservations/{date}/{roomId}";
+	}
+
+	// 14.2.8.7. @PreAuthorizeによる認可制御 ReservationsController.java
+	@PostMapping( params = "confirm")
+	String confirm(@RequestParam("reservationId") Integer reservationId, @PathVariable("roomId") Integer roomId,
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model) {
+		Reservation reservation = reservationService.findOne(reservationId);
+		model.addAttribute("reservation", reservation);
+		return "reservation/confirm";
+	}
+
+	// 14.2.8.7. @PreAuthorizeによる認可制御 ReservationsController.java
+	@PostMapping( params = "cancel")
+	String cancel(@RequestParam("reservationId") Integer reservationId, @PathVariable("roomId") Integer roomId,
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model,
+			RedirectAttributes redirectAttributes) {
+		try {
+			Reservation reservation = reservationService.findOne(reservationId);
+			reservationService.cancel(reservation);
+		} catch (AccessDeniedException e) {
+			model.addAttribute("error", e.getMessage());
+			return reserveForm(date, roomId, redirectAttributes, model);
+		}
+		redirectAttributes.addFlashAttribute("successMessage", "予約を削除しました");
+		return "redirect:/reservations/{date}/{roomId}";
+	}
+
+	//	@RequestMapping(method = RequestMethod.POST, params = "updateForm")
+	//	String updateForm(@RequestParam("reservationId") Integer reservationId, @PathVariable("roomId") Integer roomId,
+	//			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date, Model model) {
+	//			Reservation reservation = reservationService.findOne(reservationId);
+	//			model.addAttribute("reservation", reservation);
+	//			return "reservation/updateForm";
+	//	}
+
+	@PostMapping( params = "updateForm")
+	String updateForm(@RequestParam("reservationId") Integer reservationId,
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
+			@PathVariable("roomId") Integer roomId, Model model,
+			RedirectAttributes redirectAttributes) {
+		//MeetingRoom meetingRoom;
+		Reservation reservation;
+		try {
+			//meetingRoom = roomService.findMeetingRoom(roomId);
+			reservation = reservationService.findOne(reservationId);
+	    }catch(IllegalArgumentException e) {
+    		redirectAttributes.addFlashAttribute("message", e.getMessage());
+    		return "redirect:/rooms";
+	    }
+//		List<LocalTime> timeList = Stream.iterate(LocalTime.of(0, 0), t -> t.plusMinutes(30))
+//				.limit(24L * 2)
+//				.collect(Collectors.toList());
+		
+	    // 時間リストを「時間」リストと「分」リストに分割
+	    List<String> hourList = Stream.iterate(LocalTime.of(0, 0), t -> t.plusHours(1))
+	            .limit(24) // 0時から23時まで
+	            .map(t -> String.format("%02d", t.getHour())) // 時を2桁の文字列に
+	            .collect(Collectors.toList());
+
+	    List<String> minuteList = Stream.iterate(0, n -> n + 5)
+	            .limit(12) // 0から55まで（0, 5, 10, ..., 55）
+	            .map(n -> String.format("%02d", n)) // 分を2桁の文字列に変換
+	            .collect(Collectors.toList());
+	    
+		//model.addAttribute("room", meetingRoom);
+		ReservationForm form = (ReservationForm)model.getAttribute("reservationForm");
+		form.setStartHour(reservation.getStartHour());
+		form.setStartMinute(reservation.getStartMinute());
+		form.setEndHour(reservation.getEndHour());
+		form.setEndMinute(reservation.getEndMinute());
+		form.setComment(reservation.getComment());
+		form.setOnline(reservation.isOnline());
+		model.addAttribute("updateForm", form);
+	    model.addAttribute("hourList", hourList);   // 時間リスト
+	    model.addAttribute("minuteList", minuteList); // 分リスト
+		return "reservation/updateForm";
+	}
+
+	@PostMapping( params = "update")
+	String update(@RequestParam("reservationId") Integer reservationId,
+			@Validated ReservationForm form, BindingResult bindingResult,
+			@AuthenticationPrincipal ReservationUserDetails userDetails,
+			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @PathVariable("date") LocalDate date,
+			@PathVariable("roomId") Integer roomId, Model model, RedirectAttributes redirectAttributes) {
+		if (bindingResult.hasErrors()) {
+			return updateForm(reservationId, date, roomId, model, redirectAttributes);
+		}
+
+		try {
+			Reservation reservation = reservationService.findOne(reservationId);
+			reservation.setStartTime(form.getCreateStartTime());
+			reservation.setEndTime(form.getCreateEndTime());
+			reservation.setComment(form.getComment());
+			reservation.setOnline(form.isOnline());
+			reservationService.update(reservation);
+		} catch (IllegalArgumentException | UnavailableReservationException | AlreadyReservedException e) {
+			model.addAttribute("error", e.getMessage());
+			//return reserveForm(date, roomId, model);
+			return updateForm(reservationId, date, roomId, model, redirectAttributes);
+		}
+		redirectAttributes.addFlashAttribute("successMessage", "予約を変更しました");
+		return "redirect:/reservations/{date}/{roomId}";
+	}
+}

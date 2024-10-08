@@ -1,0 +1,35 @@
+<!-- 14.2.8.3. ログイン画面の作成 loginForm.html -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>ログインフォーム</title>
+</head>
+<body>
+	<h1>ログインフォーム</h1>
+	<h2 th:text="${message}">ログインの前にユーザー登録を済ませてください</h2>
+	<p th:if="${param.error}">Error!</p>
+	<form th:action="@{/login}" method="POST">
+		<table>
+			<tr>
+				<td><label for="username">User:</label></td>
+				<td><input type="text" id="username" name="username" /></td>
+				<!--初期値あり <td><input type="text" id="username" name="username" value="aaaa" /></td> -->
+			</tr>
+			<tr>
+				<td><label for="password">Password:</label></td>
+				<td><input type="password" id="password" name="password" /></td>
+				<!--初期値あり <td><input type="password" id="password" name="password" value="demo" /></td> -->
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><button type="submit">ログイン</button></td>
+			</tr>
+		</table>
+	</form>
+	<!-- ユーザー登録画面へのリンクを追加 -->
+	<p><a th:href="@{/registerForm}">ユーザー登録はこちら</a></p>
+	
+</body>
+</html>

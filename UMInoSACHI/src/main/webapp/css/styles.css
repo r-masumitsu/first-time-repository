@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* 青みがかった背景色 */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #01579b; /* 濃い青 */
+    text-align: center;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #ffffff; /* テーブル背景を白に設定 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 軽いシャドウで立体感 */
+}
+
+.product-table th, .product-table td {
+    border: 1px solid #bbdefb; /* 薄い青のボーダー */
+    padding: 12px;
+    text-align: center;
+}
+
+.product-table th {
+    background-color: #0288d1; /* ヘッダー部分を青く */
+    color: #ffffff; /* 文字色を白に */
+    font-weight: bold;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #f1f8ff; /* 偶数行に薄い青 */
+}
+
+.product-table img {
+    max-width: 100px;
+    height: auto;
+}
+
+.clear-button {
+    background-color: #0288d1; /* ボタンを青く */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-add-to-cart,
+.btn-delete,
+.btn-confirm,
+.clear-button,
+.logout-button,
+.btn-link {
+    padding: 10px 20px; /* 縦と横のパディングを増やす */
+    font-size: 16px;    /* フォントサイズを大きくする */
+    border-radius: 5px; /* 角を丸くする */
+    cursor: pointer;     /* マウスカーソルをポインターにする */
+    transition: background-color 0.3s; /* ホバー時のトランジションを追加 */
+}
+
+.btn-add-to-cart:hover,
+.btn-delete:hover,
+.btn-confirm:hover,
+.clear-button:hover,
+.btn-link:hover,
+.logout-button:hover {
+    background-color: #007BFF; /* ホバー時の背景色 */
+    color: white; /* ホバー時の文字色 */
+}
+
+.cart-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #0288d1; /* リンクを青く */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.cart-link:hover {
+    color: #01579b; /* リンクのホバー時の色 */
+}
+
+/* テーブル内の画像サイズを制限 */
+.product-image {
+    max-width: 100px; /* 横幅を最大100pxに設定 */
+    height: auto; /* 縦横比を保ったまま高さを自動調整 */
+}

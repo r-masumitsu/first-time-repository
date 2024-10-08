@@ -1,0 +1,45 @@
+package galaxy.app.registration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import galaxy.domain.model.User;
+import galaxy.domain.service.user.UserRegistrationService;
+
+@Controller
+public class RegistrationController {
+
+	@Autowired
+	UserRegistrationService userRegistrationService;
+	
+	@ModelAttribute
+	RegistrationForm setUpForm() {
+		RegistrationForm form = new RegistrationForm();
+		return form;
+	}
+	
+    @RequestMapping("registerForm")
+    String registerForm() {
+        return "registration/registerForm";
+    }
+    
+    @PostMapping("register")
+    String registerUser(Model model, @ModelAttribute User user, String confirmPassword, @Validated RegistrationForm registrationForm, BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+    		registerForm();
+    	}
+    	try {
+    		userRegistrationService.registerUser(user, confirmPassword);
+    	}catch (Exception e) {
+    		model.addAttribute("message", e.getMessage());
+    		return "reservation/reserveForm";
+		}
+        return "redirect:/login/loginForm";
+    }
+}

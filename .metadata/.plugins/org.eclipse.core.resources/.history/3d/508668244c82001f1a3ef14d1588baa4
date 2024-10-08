@@ -1,0 +1,11 @@
+$(document).ready(function(){
+    $('#datepicker').datepicker({
+        format: 'yyyy-mm-dd',  // 日付のフォーマットを指定
+        autoclose: true,       // 日付選択後にカレンダーを自動的に閉じる
+        todayHighlight: true   // 今日の日付をハイライト表示
+    }).on('changeDate', function(e) {
+        // 日付が選択されたときにページをリダイレクトする
+        const selectedDate = $('#datepicker').val();
+        window.location.href = '/rooms/' + selectedDate;
+    });
+});

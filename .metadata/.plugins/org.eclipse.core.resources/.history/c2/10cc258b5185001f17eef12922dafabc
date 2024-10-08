@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="|${#temporals.format(date, 'yyyy/M/d (E)')}の会議室|">2024/10/02の会議室</title>
+</head>
+<body>
+	<div class="container">
+		<h1>会議室</h1>
+		<p th:if="${message}" th:text="${message}"></p>
+		<form th:action="@{/rooms/select}" method="get">
+			<div class="form-group">
+				<label for="date">日付を選択:</label>
+				<input type="date" id="date" name="date" class="form-control"
+					th:value="${#temporals.format(date, 'yyyy-MM-dd')}" onchange="this.form.submit()" />
+				<label th:text="|(${#temporals.format(date, 'E')})|"></label>
+			</div>
+		</form>
+		<ul>
+			<li th:each="room: ${rooms}">
+				<a th:href="@{'/reservations/' + ${date} + '/' + ${room.meetingRoom.roomId}}"
+					th:text="${room.meetingRoom.roomName}"></a>
+			</li>
+		</ul>
+		<form th:action="@{/logout}" method="post">
+			<button class="btn btn-danger">ログアウト</button>
+		</form>
+	</div>
+</body>
+
+</html>

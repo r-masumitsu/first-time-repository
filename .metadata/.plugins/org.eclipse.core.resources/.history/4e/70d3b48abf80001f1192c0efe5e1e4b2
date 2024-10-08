@@ -1,0 +1,5 @@
+package galaxy.domain.service.user;
+
+public class UserRegistrationService {
+
+}

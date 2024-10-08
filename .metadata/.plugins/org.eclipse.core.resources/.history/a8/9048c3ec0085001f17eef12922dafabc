@@ -1,0 +1,5 @@
+package galaxy.domain.service.reservation;
+
+public interface MakeTimeList {
+
+}
