@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # findutils パッケージをインストールし、find コマンドを使用できるようにする
-microdnf install findutils
+RUN microdnf install findutils
 
 # 依存関係をインストールして、JARをビルド
 RUN ./gradlew build
