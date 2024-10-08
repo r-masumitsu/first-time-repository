@@ -7,6 +7,9 @@ WORKDIR /app
 # ソースコードをコンテナ内にコピー
 COPY . /app
 
+# findutils パッケージをインストールし、find コマンドを使用できるようにする
+microdnf install findutils
+
 # 依存関係をインストールして、JARをビルド
 RUN ./gradlew build
 
