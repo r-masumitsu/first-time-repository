@@ -5,8 +5,7 @@ DROP TABLE IF EXISTS usr CASCADE;
 
 CREATE TABLE IF NOT EXISTS meeting_room(roomid SERIAL PRIMARY KEY,room_name VARCHAR(255) NOT NULL);
 
-CREATE TABLE IF NOT EXISTS reservable_room(
-reserved_date DATE NOT NULL,
+CREATE TABLE IF NOT EXISTS reservable_room(reserved_date DATE NOT NULL,
 room_id INT NOT NULL,
 PRIMARY KEY (reserved_date, room_id),
 FOREIGN KEY (room_id) REFERENCES meeting_room(room_id) ON DELETE CASCADE
