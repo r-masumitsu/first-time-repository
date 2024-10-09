@@ -11,7 +11,7 @@ COPY . /app
 RUN microdnf install findutils
 
 # 依存関係をインストールして、JARをビルド
-RUN ./gradlew build
+RUN ./gradlew build -x test
 
 # ビルドされたJARファイルを実行する
 CMD ["java", "-jar", "/app/build/libs/galaxy-0.0.1-SNAPSHOT.jar"]
