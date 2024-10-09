@@ -1,9 +1,8 @@
 spring.application.name=galaxy
 spring.jpa.database=POSTGRESQL
-spring.datasource.url=${DATABASE_URL}
-spring.datasource.username=${DATABASE_USER}
-spring.datasource.password=${DATABASE_PASSWORD}
-spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://galaxy_crkq_user:juCyhZ8bhNoHlzPBXP8DXqHpGPIpu7N0@dpg-cs2hmte8ii6s739ikn2g-a.oregon-postgres.render.com/galaxy_crkq
+spring.datasource.username=galaxy_crkq_user
+spring.datasource.password=juCyhZ8bhNoHlzPBXP8DXqHpGPIpu7N0
 spring.jpa.hibernate.ddl-auto=validate
 spring.jpa.properties.hibernate.format_sql=true
 spring.sql.init.encoding=UTF-8
