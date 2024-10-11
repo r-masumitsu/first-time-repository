@@ -1,8 +1,6 @@
 -- usrテーブルへレコード追加
 INSERT INTO usr (user_id, first_name, last_name, role_name, password)
-VALUES ('taro-yamada', '太郎', '山田', 'USER', '$2b$12$3MXu5YYGCnzTj3WuiC0MWOFKyXzdnTaVQUi.Hba4nqhdSnKF2qOJe')/;
-INSERT INTO usr (user_id, first_name, last_name, role_name, password)
-VALUES ('jiroyamada@example.com', '次郎', '山田', 'USER', '$2a$10$oxSJl.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK')/;
+VALUES ('jiroyamada@example.com', '次郎', '山田', 'USER', '$2b$12$/NaGMqU3yxcsWwsK.ljlhOC3IcWpxE90j09X22mMcDtoTgee9SYG2')/;
 INSERT INTO usr (user_id, first_name, last_name, role_name, password)
 VALUES ('saburoyamada@example.com', '三郎', '山田', 'USER', '$2a$10$oxSJl.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK')/;
 INSERT INTO usr (user_id, first_name, last_name, role_name, password)
