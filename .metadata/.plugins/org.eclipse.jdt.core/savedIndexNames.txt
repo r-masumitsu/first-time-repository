@@ -11,7 +11,6 @@ INDEX VERSION 1.134+/Applications/Eclipse_2023-12.app/Contents/workspace/.metada
 3040735245.index
 46071730.index
 1454805234.index
-3975793558.index
 60667315.index
 3648827758.index
 55678269.index
@@ -46,7 +45,6 @@ INDEX VERSION 1.134+/Applications/Eclipse_2023-12.app/Contents/workspace/.metada
 2121572303.index
 1860500977.index
 3255094553.index
-1666714073.index
 2818828276.index
 2849349699.index
 3207136634.index
@@ -55,7 +53,6 @@ INDEX VERSION 1.134+/Applications/Eclipse_2023-12.app/Contents/workspace/.metada
 4129605879.index
 1521583126.index
 719312523.index
-4239138417.index
 2711632263.index
 2326368283.index
 679706186.index
@@ -69,8 +66,6 @@ INDEX VERSION 1.134+/Applications/Eclipse_2023-12.app/Contents/workspace/.metada
 2983324295.index
 1690027815.index
 3868511725.index
-1293878261.index
-3823117534.index
 2002000301.index
 861460794.index
 2895552073.index
@@ -80,7 +75,6 @@ INDEX VERSION 1.134+/Applications/Eclipse_2023-12.app/Contents/workspace/.metada
 2583504810.index
 919583664.index
 2883056854.index
-2153805623.index
 212194375.index
 3069504370.index
 3505239210.index
