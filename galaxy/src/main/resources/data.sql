@@ -2,9 +2,9 @@
 INSERT INTO usr (user_id, first_name, last_name, role_name, password)
 VALUES ('jiroyamada@example.com', '次郎', '山田', 'USER', '$2b$12$/NaGMqU3yxcsWwsK.ljlhOC3IcWpxE90j09X22mMcDtoTgee9SYG2')/;
 INSERT INTO usr (user_id, first_name, last_name, role_name, password)
-VALUES ('saburoyamada@example.com', '三郎', '山田', 'USER', '$2a$10$oxSJl.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK')/;
+VALUES ('saburoyamada@example.com', '三郎', '山田', 'USER', '$2b$12$zNvRSC969PCRBMWuFgb7zOXjtKqcAyWcKzf2hKJF1VlwDbCUl30q.')/;
 INSERT INTO usr (user_id, first_name, last_name, role_name, password)
-VALUES ('ichirosuzuki@example.com', '一郎', '鈴木', 'ADMIN', '$2a$10$oxSJl.keBwxmsMLkcT9lPeAIxfNTPNQxpeywMrF7A3kVszwUTqfTK')/;
+VALUES ('ichirosuzuki@example.com', '一郎', '鈴木', 'ADMIN', '$2b$12$VmxPXduieac/IA/4IDsMlelN7jBmmx2ze6/p1ZTn8usPiNEQTt8..')/;
 -- meeting_roomテーブルへレコード追加
 INSERT INTO meeting_room (room_name) VALUES ('マーキュリー')/;
 INSERT INTO meeting_room (room_name) VALUES ('ビーナス')/;

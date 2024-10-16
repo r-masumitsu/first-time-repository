@@ -1,8 +1,0 @@
-package galaxy.domain.service.reservation;
-
-import java.util.List;
-
-public interface MakeTimeList {
-	public List<String> makeHourList();
-	public List<String> makeMinuteList();
-}
