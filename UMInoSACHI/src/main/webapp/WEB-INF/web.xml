@@ -11,4 +11,8 @@
 		<extension>css</extension>
 		<mime-type>text/css</mime-type>
 	</mime-mapping>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/</param-value>
+	</context-param>
 </web-app>
