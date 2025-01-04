@@ -43,6 +43,10 @@ public class AccountsDAO {
 				Boolean isAdmin = rs.getBoolean("IS_ADMIN");
 				account = new Account(userId, pass, name, address,isAdmin);
 			}
+			//デバッグ
+			System.out.println("Query executed: " + sql);
+			System.out.println("Parameter: " + login.getUserId());
+			System.out.println("Result: " + (account != null ? account.getUserId() : "null"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			account = null;
