@@ -9,7 +9,7 @@ COPY . .
 RUN gradle clean build
 
 # 実行ステージ
-FROM tomcat:10.1
+FROM tomcat:9.0
 WORKDIR /usr/local/tomcat/webapps/
 
 # ビルドしたWARファイルをTomcatのwebappsフォルダに配置
