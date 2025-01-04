@@ -1,5 +1,5 @@
 # ベースイメージにTomcatを使用
-FROM tomcat:9.0
+FROM tomcat:10.1
 
 # WARファイルをTomcatのwebappsディレクトリにコピー
 COPY /target/UMInoSACHI.war /usr/local/tomcat/webapps/
