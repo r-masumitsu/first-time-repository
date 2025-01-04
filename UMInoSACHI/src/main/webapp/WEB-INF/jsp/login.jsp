@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>海鮮物ショッピングサイト「海の幸」</title>
-<link rel="stylesheet" href="css/styles.css">
-<!-- CSSファイルのリンク -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 	<a href="UserRegisterServlet">ユーザー登録画面へ</a>

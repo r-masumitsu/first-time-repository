@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>購入確認</title>
-<link rel="stylesheet" href="css/styles.css">
-<!-- CSSファイルのリンク -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 	<button class="logout-button" onclick="location.href='LogoutServlet'">ログアウト</button>
