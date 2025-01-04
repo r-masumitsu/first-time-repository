@@ -23,11 +23,13 @@ public class SeafoodFormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		//案内メッセージ格納用
+		String message;
+		
 		Map<String, Integer> cart = null;
 		if (session != null) {
 			cart = (Map<String, Integer>) (session.getAttribute("cart"));
 		}
-		String message;
 		if (cart != null) {
 			message = "カートに" + cart.values().size() + "種類の商品が入っています";
 		} else {
@@ -47,13 +49,15 @@ public class SeafoodFormServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		final Integer INITIALQUANTITY = 1;
+		
 		HttpSession session = request.getSession();
 		String itemId = request.getParameter("itemId");
 		String clear = request.getParameter("clear");
-		final Integer INITIALQUANTITY = 1;
+		//案内メッセージ格納用
 		String message = null;
-
-		if (clear != null) {
+		
+		if (clear != null) {	//「カートを空にする」ボタンが押されたとき
 			session.removeAttribute("cart");
 			session.removeAttribute("cartList");
 			message = "カートを空にしました";
@@ -66,7 +70,7 @@ public class SeafoodFormServlet extends HttpServlet {
 			if (itemId != null) {
 				Integer quantity = cart.get(itemId);
 				if (quantity != null) {
-					cart.put(itemId, quantity + 1);
+					cart.put(itemId, ++quantity);
 				} else {
 					cart.put(itemId, INITIALQUANTITY);
 				}
@@ -75,11 +79,13 @@ public class SeafoodFormServlet extends HttpServlet {
 			message = "カートに" + cart.values().size() + "種類の商品が入っています";
 		}
 		request.setAttribute("message", message);
-
+		
+		//商品のリストをセット
 		SeafoodLogic logic = new SeafoodLogic();
 		ArrayList<Seafood> seafoodList = logic.showList();
 		request.setAttribute("seafoodlist", seafoodList);
-
+		
+		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/seafood_form.jsp");
 		dispatcher.forward(request, response);
 	}

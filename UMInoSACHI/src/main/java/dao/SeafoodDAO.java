@@ -11,9 +11,9 @@ import model.Seafood;
 
 
 public class SeafoodDAO {
-	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/UMInoSACHI";
-	private final String DB_USER = "sa";
-	private final String DB_PASS = "";
+	private final String JDBC_URL = System.getenv("UMInoSACHI_DATASOURCE_URL");
+	private final String DB_USER = System.getenv("UMInoSACHI_DATASOURCE_PASSWORD");
+	private final String DB_PASS = System.getenv("UMInoSACHI_DATASOURCE_USERNAME");
 
 	//全件取得
 	public ArrayList<Seafood> SelectAll() {
@@ -21,7 +21,7 @@ public class SeafoodDAO {
 		ArrayList<Seafood> seafoodList= new ArrayList<>();
 		//JDBCドライバを読み込む
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
 			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 		}

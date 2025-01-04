@@ -28,7 +28,6 @@ public class UserRegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
 		String pass = request.getParameter("pass");
-		String mail = request.getParameter("mail");
 		String name = request.getParameter("name");
 		String address = request.getParameter("address");
 		Boolean isAdmin = request.isUserInRole("isAdmin");
@@ -36,7 +35,7 @@ public class UserRegisterServlet extends HttpServlet {
 		//登録処理の成否の格納
 		boolean result = false;
 		//ユーザー登録処理の実行
-		Account account = new Account(userId, pass, mail, name, address, isAdmin);
+		Account account = new Account(userId, pass, name, address, isAdmin);
 		RegisterLogic bo = new RegisterLogic();
 		result = bo.execute(account);
 		//登録処理の成否によって処理を分岐

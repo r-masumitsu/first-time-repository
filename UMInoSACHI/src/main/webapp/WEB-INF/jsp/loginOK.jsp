@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- CSSファイルのリンク -->
 </head>
 <body>
+    <button class="logout-button" onclick="location.href='LogoutServlet'">ログアウト</button>
     <section class="welcome-message">
-        <p>ようこそ、<c:out value="${account.name}" />さん</p>
+        <p>ようこそ、<c:out value="${account.name}" />様</p>
         <a class="btn-link" href="SeafoodFormServlet">海の幸購入フォームへ</a>
     </section>
 </body>

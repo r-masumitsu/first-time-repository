@@ -9,8 +9,7 @@
 </head>
 <body>
     <header class="page-header">
-        <h1>海鮮物ショッピングサイト<br>〜海の幸〜</h1>
-        <button class="logout-button" onclick="location.href='LogoutServlet'">ログアウト</button>
+        <h1>海鮮物ショッピングサイト<br>海の幸</h1>
         <hr>
     </header>
 </body>

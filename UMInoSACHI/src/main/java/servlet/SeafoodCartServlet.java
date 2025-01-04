@@ -46,7 +46,7 @@ public class SeafoodCartServlet extends HttpServlet {
 		if (cartList.isEmpty()) {
 			message = "カートに商品が入っていません";
 		} else {
-			message = "合計は" + amount + "円になります";
+			message = "合計は" + amount + "円でございます";
 		}
 
 		request.setAttribute("message", message);
