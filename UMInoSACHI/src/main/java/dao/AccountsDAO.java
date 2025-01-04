@@ -11,8 +11,8 @@ import model.Login;
 
 public class AccountsDAO {
 	private final String JDBC_URL = System.getenv("UMInoSACHI_DATASOURCE_URL");
-	private final String DB_USER = System.getenv("UMInoSACHI_DATASOURCE_PASSWORD");
-	private final String DB_PASS = System.getenv("UMInoSACHI_DATASOURCE_USERNAME");
+	private final String DB_USER = System.getenv("UMInoSACHI_DATASOURCE_USERNAME");
+	private final String DB_PASS = System.getenv("UMInoSACHI_DATASOURCE_PASSWORD");
 
 	//ログイン処理における検索
 	public Account findByLogin(Login login) {
