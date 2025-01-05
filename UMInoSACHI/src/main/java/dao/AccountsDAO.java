@@ -41,12 +41,8 @@ public class AccountsDAO {
 				String name = rs.getString("NAME");
 				String address = rs.getString("ADDRESS");
 				Boolean isAdmin = rs.getBoolean("IS_ADMIN");
-				account = new Account(userId, pass, name, address,isAdmin);
+				account = new Account(userId, pass, name, address, isAdmin);
 			}
-			//デバッグ
-			System.out.println("Query executed: " + sql);
-			System.out.println("Parameter: " + login.getUserId());
-			System.out.println("Result: " + (account != null ? account.getUserId() : "null"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			account = null;
@@ -59,20 +55,20 @@ public class AccountsDAO {
 		boolean result = false;
 		//JDBCドライバを読み込む
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
 			throw new IllegalStateException("JDBCドライバを読み込めませんでした");
 		}
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//INSERT文を準備
-			String sql = "INSERT INTO ACCOUNTS VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ACCOUNTS VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, account.getUserId());
 			pStmt.setString(2, account.getPass());
-			pStmt.setString(4, account.getName());
-			pStmt.setString(5, account.getAddress());
-			pStmt.setBoolean(6, account.isAdmin());
+			pStmt.setString(3, account.getName());
+			pStmt.setString(4, account.getAddress());
+			pStmt.setBoolean(5, account.isAdmin());
 			int rowsAffected = pStmt.executeUpdate();
 			result = (rowsAffected == 1);
 		} catch (SQLException e) {
