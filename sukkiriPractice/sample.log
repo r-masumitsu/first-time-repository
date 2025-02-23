@@ -1,0 +1,13 @@
+12月 10, 2024 11:10:04 午後 chapter5.section4.Main main
+情報: 情報（INFO）メッセージ
+12月 10, 2024 11:10:04 午後 chapter5.section4.Main main
+警告: 警告（WARNING）メッセージ
+12月 10, 2024 11:10:04 午後 chapter5.section4.Main main
+重大: 重大（SEVERE）メッセージ
+12月 10, 2024 11:10:04 午後 chapter5.section4.Main main
+情報: 情報（INFO）メッセージ
+12月 10, 2024 11:10:04 午後 chapter5.section4.Main main
+警告: エラーが発生しました
+java.lang.Exception
+	at chapter5.section4.Main.main(Main.java:40)
+

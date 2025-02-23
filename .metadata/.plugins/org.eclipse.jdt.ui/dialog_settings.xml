@@ -4,6 +4,7 @@
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-21"/>
 	<item key="delegateUpdating" value="false"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="layout" value="1"/>
 		<item key="group_libraries" value="true"/>
@@ -12,7 +13,152 @@
 		<item key="linkWithEditor" value="false"/>
 	</section>
 	<section name="javadoc">
+		<item key="javadoc_command_history" value="/Applications/Eclipse_2023-12.app/Contents/java/21/Home/bin/javadoc"/>
+		<item key="fromStandard" value="true"/>
+		<item key="docletname" value=""/>
+		<item key="docletpath" value=""/>
+		<item key="access" value="private"/>
+		<item key="use" value="false"/>
+		<item key="author" value="false"/>
+		<item key="version" value="false"/>
+		<item key="nodeprecated" value="false"/>
+		<item key="nodeprecatedlist" value="false"/>
+		<item key="splitindex" value="false"/>
+		<item key="noindex" value="false"/>
+		<item key="notree" value="false"/>
+		<item key="nonavbar" value="false"/>
+		<item key="openinbrowser" value="false"/>
+		<item key="source" value="21"/>
+		<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/javadoc.xml"/>
+		<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/doc"/>
 		<item key="additionalparam" value="-encoding UTF-8&#x0D;&#x0A;-charset UTF-8"/>
+		<section name="projects">
+			<section name="ThymeleafSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/ThymeleafSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/ThymeleafSample/javadoc.xml"/>
+			</section>
+			<section name="galaxy">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/galaxy/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/galaxy/javadoc.xml"/>
+			</section>
+			<section name="ValidationSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/ValidationSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/ValidationSample/javadoc.xml"/>
+			</section>
+			<section name="UMInoSACHI">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/UMInoSACHI/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/UMInoSACHI/javadoc.xml"/>
+			</section>
+			<section name="webapp">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/webapp/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/webapp/javadoc.xml"/>
+			</section>
+			<section name="InjectionSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/InjectionSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/InjectionSample/javadoc.xml"/>
+			</section>
+			<section name="RequestParamSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/RequestParamSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/RequestParamSample/javadoc.xml"/>
+			</section>
+			<section name="sevendays">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sevendays/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sevendays/javadoc.xml"/>
+			</section>
+			<section name="AOPsample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/AOPsample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/AOPsample/javadoc.xml"/>
+			</section>
+			<section name="Servers">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/Servers/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/Servers/javadoc.xml"/>
+			</section>
+			<section name="mrs">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/mrs/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/mrs/javadoc.xml"/>
+			</section>
+			<section name="DISample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/DISample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/DISample/javadoc.xml"/>
+			</section>
+			<section name="ex">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/ex/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/ex/javadoc.xml"/>
+			</section>
+			<section name="InterfaceSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/InterfaceSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/InterfaceSample/javadoc.xml"/>
+			</section>
+			<section name="JavaConfigSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/JavaConfigSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/JavaConfigSample/javadoc.xml"/>
+			</section>
+			<section name="MyBatisSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/MyBatisSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/MyBatisSample/javadoc.xml"/>
+			</section>
+			<section name="LombokSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/LombokSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/LombokSample/javadoc.xml"/>
+			</section>
+			<section name="SpringMVCViewSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/SpringMVCViewSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/SpringMVCViewSample/javadoc.xml"/>
+			</section>
+			<section name="CarrelationValidationSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/CarrelationValidationSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/CarrelationValidationSample/javadoc.xml"/>
+			</section>
+			<section name="galaxy01">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/galaxy01/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/galaxy01/javadoc.xml"/>
+			</section>
+			<section name="sukkiriPractice">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/javadoc.xml"/>
+			</section>
+			<section name="dokoTsubu">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/dokoTsubu/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/dokoTsubu/javadoc.xml"/>
+			</section>
+			<section name="PathValiableSample">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/PathValiableSample/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/PathValiableSample/javadoc.xml"/>
+			</section>
+			<section name="example">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/example/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/example/javadoc.xml"/>
+			</section>
+			<section name="sukkiri-quest">
+				<item key="href" value=""/>
+				<item key="destdir" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiri-quest/doc"/>
+				<item key="antpath" value="/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiri-quest/javadoc.xml"/>
+			</section>
+		</section>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
@@ -50,14 +196,15 @@
 		<item key="FinalModifier" value="false"/>
 		<item key="SynchronizedModifier" value="false"/>
 		<item key="Comments" value="false"/>
+		<item key="InsertPosition.v2" value="1"/>
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item key="SortOrdering" value="false"/>
 		<item key="RemoveFinal" value="false"/>
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="679"/>
-		<item key="DIALOG_Y_ORIGIN" value="115"/>
+		<item key="DIALOG_X_ORIGIN" value="903"/>
+		<item key="DIALOG_Y_ORIGIN" value="341"/>
 		<item key="DIALOG_WIDTH" value="563"/>
 		<item key="DIALOG_HEIGHT" value="638"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
@@ -73,8 +220,8 @@
 		<item key="OmitCallToSuper" value="false"/>
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="864"/>
-		<item key="DIALOG_Y_ORIGIN" value="123"/>
+		<item key="DIALOG_X_ORIGIN" value="940"/>
+		<item key="DIALOG_Y_ORIGIN" value="209"/>
 		<item key="DIALOG_WIDTH" value="563"/>
 		<item key="DIALOG_HEIGHT" value="619"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
@@ -117,5 +264,43 @@
 			<item key="DIALOG_Y_ORIGIN" value="-8"/>
 			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 		</section>
+	</section>
+	<section name="NewRecordWizardPage">
+		<item key="create_unimplemented" value="false"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="2"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="0"/>
+	</section>
+	<section name="JarPackageWizard">
+		<item key="JarPackageWizardPage.EXPORT_CLASS_FILES" value="true"/>
+		<item key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER" value="false"/>
+		<item key="JarPackageWizardPage.EXPORT_JAVA_FILES" value="false"/>
+		<item key="JarPackageWizardPage.REFACTORINGS" value="false"/>
+		<item key="JarPackageWizardPage.COMPRESS" value="true"/>
+		<item key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES" value="false"/>
+		<item key="JarPackageWizardPage.OVERWRITE" value="false"/>
+		<item key="jarOptionsWizardPage.EXPORT_WARNINGS" value="true"/>
+		<item key="jarOptionsWizardPage.EXPORT_ERRORS" value="true"/>
+		<item key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS" value="false"/>
+		<item key="jarOptionsWizardPage.BUILD_IF_NEEDED" value="true"/>
+		<item key="jarOptionsWizardPage.SAVE_DESCRIPTION" value="false"/>
+		<item key="jarOptionsWizardPage.DESCRIPTION_LOCATION" value=""/>
+		<item key="JarManifestWizardPage.GENERATE_MANIFEST" value="true"/>
+		<item key="JarManifestWizardPage.SAVE_MANIFEST" value="false"/>
+		<item key="JarManifestWizardPage.REUSE_MANIFEST" value="false"/>
+		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value="/sukkiriPractice/resources/manifestC10S12.txt"/>
+		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
+		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="sukkiriPractice/resources/atm.jar"/>
+			<item value="sukkiriPractice/resources/Untitled.jar"/>
+		</list>
+	</section>
+	<section name="JavaSearchPage">
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="INCLUDE_MASK" value="11"/>
+		<item key="HISTORY_SIZE" value="0"/>
 	</section>
 </section>

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"chapter10.section12","l":"Bank"},{"l":"すべてのクラスおよびインタフェース","u":"allclasses-index.html"}];updateSearchResults();

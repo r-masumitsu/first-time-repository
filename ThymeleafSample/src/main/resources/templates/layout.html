@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="base(title, content)">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- ▼ ここが入れ替わる ▼ -->
+	<title th:replace="${title}">ベースレイアウト</title>
+</head>
+
+<body>
+	<div style="text-align: center;">
+		<h1>☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆<br>
+			☆☆　　　　　共通ヘッダー　　　　　☆☆<br>
+			☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆</h1>
+	</div>
+	<!-- ▼ ここが入れ替わる ▼ -->
+	<div style="text-align: center;" th:insert="${content}">内容</div>
+	<div style="text-align: center;">
+		<h1>☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆<br>
+			☆☆　　　　　共通フッター　　　　　☆☆<br>
+			☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆</h1>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hero>
+	<name>ミナト</name>
+	<hp>75</hp>
+	<mp>18</mp>
+	<weapon>
+		<name>鋼の剣</name>
+		<power>7</power>
+	</weapon>
+</hero>

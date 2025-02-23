@@ -7,7 +7,7 @@
 </head>
 <body>
     <footer class="page-footer">
-        <p>Copyright ケニー制作委員会 All Right Reserved.</p>
+        <p>Copyright ケニー制作委員会 All Rights Reserved.</p>
     </footer>
 </body>
 </html>

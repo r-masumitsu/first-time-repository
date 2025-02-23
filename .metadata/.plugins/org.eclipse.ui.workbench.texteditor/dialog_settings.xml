@@ -6,14 +6,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="successMessage"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="mail"/>
+			<item value="String"/>
+			<item value="args"/>
 			<item value="successMessage"/>
 			<item value="principal"/>
 			<item value="seafood"/>
 			<item value="break;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="g"/>
 			<item value="result"/>
 		</list>
 	</section>
