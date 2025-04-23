@@ -12,7 +12,7 @@ public class FileReaderMain {
     	//⭐︎特にMac環境では、ファイルパスの区切りとして/を使用する
     	//⭐︎Java文字列内でWindowsの¥を使用する場合はエスケープが必要だが、Macでは不要。
     	// ファイルパスをここで定義（MacOS環境用）
-        String filePath = "/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/resources/rpsave.dat";
+        String filePath = "/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/resources/rpgsave.dat";
         
         // finally句でclose()メソッドを使用するために変数を用意
         FileReader fReader = null;        

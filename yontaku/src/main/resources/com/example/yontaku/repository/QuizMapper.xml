@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.yontaku.repository.QuizMapper">
+	
+	<!-- 全件検索 -->
+	<select id="selectAll"
+		resultType="com.example.yontaku.entity.Quiz">
+		SELECT * FROM quiz
+	</select>
+	
+	<!-- 作成者の名前で１件検索 -->
+	<select id="selectByAuthor"
+		resultType="com.example.yontaku.entity.Quiz">
+		SELECT * FROM quiz WHERE author_name=#{name}
+	</select>
+	
+	<!-- １件検索 -->
+	<select id="selectById"
+		resultType="com.example.yontaku.entity.Quiz">
+		SELECT * FROM quiz WHERE quiz_id=#{id}
+	</select>
+	
+	<!-- 登録 -->
+	<insert id="insert">
+		INSERT INTO quiz (question, option1, option2,
+		option3, option4, answer, author_name, genre, description)
+		VALUES
+		(#{question}, #{option1}, #{option2}, #{option3}, #{option4},
+		#{answer}, #{author_name}, #{genre}, #{description})
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update">
+		UPDATE Quiz SET question = #{question},
+		option1 = #{option1},
+		option2 = #{option2},
+		option3 = #{option3},
+		option4 = #{option4},
+		answer = #{answer},
+		author_name= #{author_name},
+		genre = #{genre},
+		description = #{description} WHERE quiz_id = #{quiz_id}
+	</update>
+	
+	<!-- 削除 -->
+	<delete id="delete">
+		DELETE FROM Quiz WHERE quiz_id = #{quiz_id}
+	</delete>
+	
+</mapper>

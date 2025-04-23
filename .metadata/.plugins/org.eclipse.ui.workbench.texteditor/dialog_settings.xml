@@ -6,8 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="user"/>
 		<list key="findhistory">
+			<item value="authentication"/>
+			<item value="Authentication"/>
+			<item value="webapp"/>
+			<item value="ToDo"/>
+			<item value="todo"/>
+			<item value="「すること」"/>
+			<item value="Todo"/>
+			<item value="Quizs"/>
 			<item value="mail"/>
 			<item value="String"/>
 			<item value="args"/>
@@ -17,6 +25,12 @@
 			<item value="break;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="user"/>
+			<item value="User"/>
+			<item value="yontaku"/>
+			<item value="Quiz"/>
+			<item value="quiz"/>
+			<item value="クイズ"/>
 			<item value="g"/>
 			<item value="result"/>
 		</list>

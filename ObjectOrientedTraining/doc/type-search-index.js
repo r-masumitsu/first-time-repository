@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"lesson3","l":"Judge"},{"p":"lesson3","l":"Player"},{"p":"lesson2","l":"SimpleJanken"},{"l":"すべてのクラスおよびインタフェース","u":"allclasses-index.html"}];updateSearchResults();

@@ -14,14 +14,14 @@ public class FileOutputStreamMain {
     	//⭐︎特にMac環境では、ファイルパスの区切りとして/を使用する
     	//⭐︎Java文字列内でWindowsの¥を使用する場合はエスケープが必要だが、Macでは不要。
     	// ファイルパスをここで定義（MacOS環境用）
-        String filePath = "/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/resources/rpsave.dat";
+        String filePath = "/Applications/Eclipse_2023-12.app/Contents/workspace/sukkiriPractice/resources/rpgsave.dat";
         
         // finally句でclose()メソッドを使用するために変数を用意
         FileOutputStream fos = null;
         try {
         	//第２引数がtrueの場合、もしすでにファイルが存在していた場合その末尾からデータを追記していく
         	//第２引数がfalseまたは省略の場合、必ずファイルの先頭からデータを上書きしていく
-        	fos = new FileOutputStream(filePath, true);
+        	fos = new FileOutputStream(filePath, false);
             // ファイルに文字 'A' を書き込む
         	//Aのバイト表現は65（２進数で01000001）
         	fos.write(65);
