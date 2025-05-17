@@ -204,7 +204,7 @@
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item key="DIALOG_X_ORIGIN" value="903"/>
-		<item key="DIALOG_Y_ORIGIN" value="341"/>
+		<item key="DIALOG_Y_ORIGIN" value="275"/>
 		<item key="DIALOG_WIDTH" value="563"/>
 		<item key="DIALOG_HEIGHT" value="638"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
@@ -220,7 +220,7 @@
 		<item key="OmitCallToSuper" value="false"/>
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="940"/>
+		<item key="DIALOG_X_ORIGIN" value="907"/>
 		<item key="DIALOG_Y_ORIGIN" value="209"/>
 		<item key="DIALOG_WIDTH" value="563"/>
 		<item key="DIALOG_HEIGHT" value="619"/>
@@ -261,7 +261,7 @@
 			<item key="DIALOG_HEIGHT" value="500"/>
 			<item key="DIALOG_WIDTH" value="600"/>
 			<item key="DIALOG_X_ORIGIN" value="-7"/>
-			<item key="DIALOG_Y_ORIGIN" value="-8"/>
+			<item key="DIALOG_Y_ORIGIN" value="0"/>
 			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 		</section>
 	</section>
@@ -302,5 +302,11 @@
 		<item key="CASE_SENSITIVE" value="false"/>
 		<item key="INCLUDE_MASK" value="11"/>
 		<item key="HISTORY_SIZE" value="0"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.typehierarchy.QuickHierarchy">
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_WIDTH" value="331"/>
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_HEIGHT" value="260"/>
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 	</section>
 </section>

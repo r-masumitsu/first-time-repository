@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="user"/>
+		<item key="selection" value="loading p"/>
 		<list key="findhistory">
+			<item value="loading p"/>
 			<item value="authentication"/>
 			<item value="Authentication"/>
 			<item value="webapp"/>
@@ -22,7 +23,6 @@
 			<item value="successMessage"/>
 			<item value="principal"/>
 			<item value="seafood"/>
-			<item value="break;"/>
 		</list>
 		<list key="replacehistory">
 			<item value="user"/>
@@ -36,7 +36,7 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1347"/>
+		<item key="DIALOG_X_ORIGIN" value="1134"/>
 		<item key="DIALOG_Y_ORIGIN" value="371"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="400"/>
