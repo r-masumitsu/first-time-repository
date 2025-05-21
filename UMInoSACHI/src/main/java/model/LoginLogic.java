@@ -1,12 +1,12 @@
 package model;
 
-import dao.AccountsDAO;
+import dao.UserDAO;
 
 //アカウント情報を戻すように変更
 public class LoginLogic {
-	public Account execute(Login login) {
-		AccountsDAO dao = new AccountsDAO();
-		Account account = dao.findByLogin(login);
-		return account;
+	public User execute(User user) {
+		UserDAO dao = new UserDAO();
+		user = dao.findByLogin(user);
+		return user;
 	}
 }

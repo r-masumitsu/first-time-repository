@@ -1,21 +1,23 @@
 package model;
 
-import dao.AccountsDAO;
+import java.time.LocalDate;
+
+import dao.UserDAO;
 
 public class RegisterLogic {
-	public boolean execute(Account account) {
-		String userId = account.getUserId();
-		String pass = account.getPass();
-		String name = account.getName();
-		String address = account.getAddress();
+	public boolean execute(User user) {
+		String name = user.getPassword();
+		String email = user.getPassword();
+		String password = user.getName();
+		LocalDate create_at = user.getCreate_at();
 		
 		//ユーザーID,パスワード,メールアドレスおよび姓名のどれか一つでもnullもしくは空文字のときはfalseを返す
-		if(userId.isBlank() || pass.isBlank() || name.isBlank() || address.isBlank()) {
+		if(name.isBlank() || email.isBlank() || password.isBlank() || create_at == null) {
 			return false;
 		}
 		
-		AccountsDAO dao = new AccountsDAO();
-		boolean result = dao.insertByRegister(account);
+		UserDAO dao = new UserDAO();
+		boolean result = dao.insertByRegister(user);
 		return result;
 	}
 }

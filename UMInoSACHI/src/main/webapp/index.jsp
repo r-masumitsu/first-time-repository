@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>海鮮物ショッピングサイト「海の幸」</title>
+<title>トップ</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
@@ -13,7 +13,7 @@
 	<nav>
 		<ul class="menu">
 			<li><a href="LoginServlet">ログイン</a></li>
-			<li><a href="UserRegisterServlet">ユーザー登録</a></li>
+			<li><a href="RegisterServlet">ユーザー登録</a></li>
 		</ul>
 	</nav>
 </body>

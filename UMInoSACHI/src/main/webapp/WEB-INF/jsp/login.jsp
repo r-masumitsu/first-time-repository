@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>海鮮物ショッピングサイト「海の幸」</title>
+<title>ログイン</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css">
 </head>
@@ -18,12 +18,12 @@
 		<form action="LoginServlet" method="post">
 			<table>
 				<tr>
-					<td><label for="userId">ID（メールアドレス）：</label></td>
-					<td><input type="text" id="userId" name="userId"></td>
+					<td><label for="email">メールアドレス：</label></td>
+					<td><input type="text" id="email" name="email"></td>
 				</tr>
 				<tr>
 					<td><label for="pass">パスワード：</label></td>
-					<td><input type="password" id="pass" name="pass"></td>
+					<td><input type="password" id="password" name="password"></td>
 				</tr>
 				<tr>
 					<td colspan="2" style="text-align: center;"><input

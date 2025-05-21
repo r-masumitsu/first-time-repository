@@ -9,9 +9,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Account;
-import model.Login;
 import model.LoginLogic;
+import model.User;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -25,24 +24,25 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String userId = request.getParameter("userId");
-		String pass =request.getParameter("pass");
+		String email = request.getParameter("email");
+		String password =request.getParameter("password");
 		
 		//ログイン処理の実行
-		Login login = new Login(userId, pass);
-		LoginLogic bo = new LoginLogic();
-		Account account = bo.execute(login);
+		final int INITIALID = 0;	//ユーザーIDの初期値
+		User user = new User(INITIALID, null, email, password, null);
+		LoginLogic loginLogic = new LoginLogic();
+		user = loginLogic.execute(user);
 		
 		//ログイン処理の成否によって処理を分岐
-		if(account != null) {	//ログイン成功時
+		if(user != null) {	//ログイン成功時
 			HttpSession session = request.getSession(false);
 			if (session != null) {
 			    session.invalidate(); // 現在のセッションを無効化
 			}
 			session = request.getSession(true); // 新しいセッションを作成
-			session.setAttribute("account", account);
+			session.setAttribute("user", user);
 			//フォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginOK.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/productList.jsp");
 			dispatcher.forward(request, response);
 		}else {	//ログイン失敗時
 			//リダイレクト
