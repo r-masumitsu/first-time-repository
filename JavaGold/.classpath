@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_2023-12.app/Contents/workspace/JavaGold"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
