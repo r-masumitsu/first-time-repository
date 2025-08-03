@@ -18,7 +18,12 @@
 			class="border p-4 bg-white rounded shadow-sm">
 			<h1 class="text-primary">会議室予約</h1>
 
-			<div class="mb-3">会議室: <span th:text="${room.roomName}">マーキュリー</span></div>
+			<div class="mb-3 d-flex align-items-center">
+				<span class="me-2">会議室:</span>
+				<span th:text="${room.roomName}" class="fw-bold me-3">マーキュリー</span>
+				<img th:src="@{'/images/' + ${room.roomName} + '.png'}" th:alt="${room.roomName} + 'の画像'"
+					style="height: 40px;" />
+			</div>
 			<div class="mb-3">予約者名: <span th:text="${user.lastName + ' ' + user.firstName}">姓 名</span></div>
 			<div class="mb-3">日付: <span th:text="${#temporals.format(date, 'yyyy/MM/dd (E)')}">XXXX/XX/XX (月)</span>
 			</div>

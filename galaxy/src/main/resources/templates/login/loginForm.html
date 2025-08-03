@@ -12,8 +12,9 @@
 	<div class="container mt-5">
 		<div class="row justify-content-center">
 			<div class="col-md-4">
-				<h1 class="text-center text-primary">ログイン</h1>
-				<h2 th:if="${message}" th:text="${message}" class="text-danger text-center"></h2>
+				<h1 class="text-center text-primary">会議室予約</h1>
+				<h2 class="text-center text-primary">ログイン</h2>
+				<h3 th:if="${message}" th:text="${message}" class="text-danger text-center"></h3>
 				<p th:if="${param.error}" class="text-danger text-center">ログインに失敗しました。もう一度入力してください。</p>
 				<form th:action="@{/login}" method="POST" class="border p-4 bg-white rounded shadow-sm">
 					<div class="mb-3">
@@ -29,6 +30,8 @@
 				<p class="text-center mt-3">
 					<a th:href="@{/registerForm}">ユーザー登録はこちら</a>
 				</p>
+				<img th:src="@{'/images/taiyokei.png'}" th:alt="ログイン画像" class="img-fluid mb-3 mx-auto d-block"
+					style="max-height: 150px;">
 			</div>
 		</div>
 	</div>
