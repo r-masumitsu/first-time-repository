@@ -115,3 +115,12 @@
 ## 17
 - scheduleAtFixedRateメソッドは、インターバルが終了したら次の処理を実行する。次の処理との間隔は一定ではない。
 - scheduleWithFixedDelayメソッドは、処理時間の長さに関係なく一定のインターバルを取る。
+
+
+# 第六章 ファイルI/O
+
+## 12
+- ファイルやディレクトリへのパスを表すのは、java.nio.file.Pathインタフェース
+- ファイル操作は、java.nio.file.Filesクラス
+- Pathのインスタンスへの参照を取得するのは、java.nio.file.Pathsクラスのgetメソッド
+- Pathのインスタンスへの参照を取得するのは、new File("sample.txt").toPath()でも可能
