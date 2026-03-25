@@ -124,3 +124,13 @@
 - ファイル操作は、java.nio.file.Filesクラス
 - Pathのインスタンスへの参照を取得するのは、java.nio.file.Pathsクラスのgetメソッド
 - Pathのインスタンスへの参照を取得するのは、new File("sample.txt").toPath()でも可能
+
+
+# 第七章 JDBC
+
+## 10
+- PreparedStatementのexecuteUpdateメソッドの引数にSQL文を渡してもコンパイルエラーにはならない。ただし、例外がスローされる。
+
+## 11
+- ResultSetのgetXXXメソッドの引数は、列番号をint型で渡すか、列名をString型で指定する。なお、列番号は1から始まる点に注意。
+- 
