@@ -133,3 +133,9 @@
 
 ## 11
 - ResultSetのgetXXXメソッドの引数は、列番号をint型で渡すか、列名をString型で指定する。なお、列番号は1から始まる点に注意。
+
+
+# 第八章 JDBC
+
+## 6
+- Properties#loadメソッドには、java.io.InputStreamを引数として渡す。
