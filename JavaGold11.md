@@ -34,6 +34,7 @@
 	- 引数・・・Consumer<T>
 	- 戻り値・・・無し
 
+
 ## 5
 ### ストリームでよく使われるメソッド
 - filterメソッド・・・特定の要素に絞り込む中間操作。
@@ -59,6 +60,7 @@ double result =	//戻り値はdoubleではない
             Item::getName,
             Collectors.averagingDouble(Item::getPrice)
         ));
+```
 - ＜正しい例＞
 ```java
 Map<String, Double> result =
@@ -67,3 +69,4 @@ Map<String, Double> result =
             Item::getName,
             Collectors.averagingDouble(Item::getPrice)
         ));
+```
