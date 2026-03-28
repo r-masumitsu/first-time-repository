@@ -1,9 +1,5 @@
 # 第十三章 総仕上げ問題
 
-## 2
-- ジェネリクスを使ったクラスのことを「総称型」と呼ぶ。
-- 型パラメータを受け取るクラスに型パラメータを渡さなかった場合、Object型の型パラメータが渡されたものとして解釈される。
-
 ## 1
 - java.lang.Systemクラスのinフィールドは、キーボードから入力されるデータを扱うためのInputStream型オブジェクトである。
 - InputStreamReaderは、InputStream（バイトストリームを扱う）をReader（文字ストリームを扱う）に変換する。
@@ -37,3 +33,37 @@
 - forEachメソッドは、ストリーム・パイプラインの終端操作である。Stream の各要素に対して処理を実行して終わる。
 	- 引数・・・Consumer<T>
 	- 戻り値・・・無し
+
+## 5
+### ストリームでよく使われるメソッド
+- filterメソッド・・・特定の要素に絞り込む中間操作。
+	- 引数・・・Predicate<T>
+	- 戻り値・・・Stream<T>
+- mapToIntメソッド・・・T型をintに変換する
+	- 引数・・・ToIntFunction<T>
+	- 戻り値・・・IntStream
+- averageメソッド・・・平均を求める。IntStream・LongStream・DoubleStreamに定義されている。
+	- 引数・・・なし
+	- 戻り値・・・OptionalDouble
+- ＜例＞OptionalDoubleから値を取り出す。
+	- double value = avg.getAsDouble(); // 値がないと例外になるので非推奨
+	- double value = avg.orElse(0.0); // 安全な書き方（推奨）
+
+### CollectorsクラスのgroupingByメソッドはいくつかのオーバーロードを持っている
+- List<Item>を、name（名前）ごとにグループ化して、price（価格）の平均値を求める
+- ＜誤り例＞
+```java
+double result =	//戻り値はdoubleではない
+    list.stream()
+        .collect(Collectors.groupingBy(
+            Item::getName,
+            Collectors.averagingDouble(Item::getPrice)
+        ));
+- ＜正しい例＞
+```java
+Map<String, Double> result =
+    list.stream()
+        .collect(Collectors.groupingBy(
+            Item::getName,
+            Collectors.averagingDouble(Item::getPrice)
+        ));
