@@ -177,7 +177,7 @@ double avg = Stream.of(a, b)
 	.collect(Collectors.averagingDouble(d -> d));
 ```
 - IntStream#averageメソッドの戻り値型はOptionalDouble型である。
-- averageメソッドは、IntStreamに対して提供されるメソッドであり、mapToIntメソッドなどによる型変換がなければ使用できません。
+- averageメソッドは、IntStreamに対して提供されるメソッドであり、mapToIntメソッドなどによる型変換がなければ使用できない。
 
 ## 22 
 - IntStream#allMatchメソッドとIntStream#noneMatchメソッドとはいずれもストリームの終端操作である。
@@ -194,6 +194,8 @@ double avg = Stream.of(a, b)
 
 ## 31
 - ストリーム内の数値の平均を計算できるのは、IntStream,LongStream,DoubleStreamといったプリミティブ専用ストリームだけである。
+- DoubleStreamに定義されているcollectメソッドは、引数としてSupplier,ObjDoubleConsumer,BiConsumerの３つを一度に受け取るものだけ。
+	- Collectorsが返すCollectorを引数に取るDoubleStream#collectメソッドは存在しない。
 
 ## 34
 - Flow.Subscriberでは、受付開始時にどれだけの要素を受け取るかをrequestメソッドで指定する。ここに0以下の値を渡すことは仕様違反と定められている。
