@@ -59,10 +59,10 @@
 # 第三章 JavaストリームAPI
 
 ## 2
-- getメソッドは、値が入っていることを前提としているため、getメソッドで空のOptionalのインスタンスから値を取り出そうとすると、NoSuchElementExceptionがスローされる。
+- getメソッドは、値が入っていることを前提としているため、getメソッドで空の`Optional`のインスタンスから値を取り出そうとすると、`NoSuchElementException`がスローされる。
 
 ## 11
-- 配列からストリームを作るにはjava.util.Arraysクラスのstreamメソッドを使う。
+- 配列からストリームを作るには`java.util.Arrays`クラスの`stream`メソッドを使う。
 
 ## 16
 - findFirstメソッドはストリームの最初の要素を戻すものであって、最初に処理した要素を戻すわけではない。
@@ -86,8 +86,8 @@
 ### そのモジュールがどのようなパッケージを公開しているのか、またどのようなモジュールに依存しているか、module-info.java以外で確認するには次のような方法がある。
 - javaコマンドの--describe-moduleオプションを使う。
 - jmodコマンドのdescribeモードを使う。
-### その他の関連コマンド
-- jdepコマンドは、クラスやメソッド、jarファイル、モジュールの依存関係を調べるためのコマンドである。
+
+- jdepコマンドは、クラスやメソッド、jarファイル、モジュールの依存関係を調べるためのコマンドである
 - javaコマンドの--show-module-resolutionオプションは、プログラムの実行時に依存するモジュールがどのように探されているかを表示するためのオプション。
 
 ## 12
@@ -139,3 +139,72 @@
 
 ## 6
 - Properties#loadメソッドには、java.io.InputStreamを引数として渡す。
+
+
+# 第九章 模擬問題
+
+## 14 リストのソート方法主に三つ
+- Collections.sort（一番シンプル）
+```java
+Collections.sort(list);
+```
+- Listのsortメソッド（Java8以降）
+```java
+list.sort(Comparator.naturalOrder());
+```
+- Streamでソート（新しいListを作る）
+```java
+List<String> sorted = list.stream()
+					.sorted()
+					.collect(Collectors.toList());
+```
+
+## 16 Console.printf は「フォーマット付きで出力する」ためのメソッド
+- 指定子%s・・・文字列
+- 指定子%d・・・整数
+- 指定子%f・・・少数
+- 指定子%n・・・改行
+```java
+Console console = System.console();
+console.printf("名前：%s 年齢：%d%n", "太郎", 20);
+```
+- 違う種類の指定子を使ってしまうと、 IllegalFormatConversionExceptionが発生する。
+
+## 18 複数のListの中にある数値を全部まとめて、平均値を計算している
+```java
+double avg = Stream.of(a, b)
+	.flatMap(List::stream)
+	.collect(Collectors.averagingDouble(d -> d));
+```
+- IntStream#averageメソッドの戻り値型はOptionalDouble型である。
+- averageメソッドは、IntStreamに対して提供されるメソッドであり、mapToIntメソッドなどによる型変換がなければ使用できません。
+
+## 22 
+- IntStream#allMatchメソッドとIntStream#noneMatchメソッドとはいずれもストリームの終端操作である。
+
+## 23 java.time.format.DateTimeFormatterで使用される日付・時刻パターン文字列について
+- パターン文字列で元号を表すにはGを使う。1〜3回のGは略称、4回のGは元号の完全な名称、5回のGはナロースタイル（1文字）を表す。
+- パターン文字列で曜日を表すにはEを使う。1〜3回は略称、4回はの完全な名称である。
+
+## 26
+- 同一のThreadインスタンスに対するstartは1回しか許されない。2回目はIllegalThreadStateExceptionがスローされる。
+
+## 28
+- FileOutputStreamは文字単位ではなくバイト単位で書き込むクラスである。writeメソッドにはバイト文字列を渡す必要がある。
+
+## 31
+- ストリーム内の数値の平均を計算できるのは、IntStream,LongStream,DoubleStreamといったプリミティブ専用ストリームだけである。
+
+## 34
+- Flow.Subscriberでは、受付開始時にどれだけの要素を受け取るかをrequestメソッドで指定する。ここに0以下の値を渡すことは仕様違反と定められている。
+
+## 39
+### outディレクトリにあるモジュール（moda）とその依存関係をもとに、必要最小限の軽量なJava実行環境をruntimeに生成し、指定したメインクラス（app.moda.Main）を起動するコマンド（main）も作成するコマンド。
+jlink -p out --add-modules moda --output runtime --launcher main=moda/app.moda.Main
+
+## 42
+### src配下のmoduleaを、依存モジュール（../out）を参照しながらコンパイルして、outに出力するコマンド
+javac -d out --module-source-path src --module-path ../out --module modulea
+
+## 50
+- Stream#takeWhileメソッド・・・ストリームの先頭から条件がtrueの間だけ要素を取り出す操作である。
